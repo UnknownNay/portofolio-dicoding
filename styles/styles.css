@@ -494,3 +494,14 @@ header.scrolled {
   .license-title img { width: 40px; }
   .location p { font-size: 0.95rem; }
 }
+
+@media (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  aside {
+    order: -1; /* pindahkan ke atas konten utama */
+  }
+}
