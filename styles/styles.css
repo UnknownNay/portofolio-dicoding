@@ -1,0 +1,496 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Open Sans", sans-serif;
+    background-color: #FFF0CE;
+}
+
+header{
+    padding: 20px 100px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+}
+
+i{
+    color: #3396D3;
+}
+
+nav ul{
+    display: flex;
+    gap: 100px;
+}
+
+nav li{
+
+    list-style: none;
+}
+
+main{
+    padding: 0px 150px;
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.container{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 0;
+}
+
+.about-me{
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    background-color: #EBCB90 ;
+}
+
+.about-me button{
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: #3396D3;
+    color: white;
+    cursor: pointer;
+}
+
+.about-me i{
+    color: white;
+}
+
+.project {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    
+}
+
+.project-card {
+  background-color: #EBCB90;
+  flex: 1 1 30%;
+  max-width: 32%;
+  min-width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi transisi */
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Membesarkan ukuran */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan agar lebih menonjol */
+}
+
+
+.language-icon{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.dot{
+    background-color: purple;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+}
+
+.profile-card{
+    width: 350px;
+    background-color: #EBCB90 ;
+    border-radius: 28px ;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+.profile-content{
+    text-align: left;
+    padding: 0 30px 30px 30px;
+}
+
+
+
+.cover{
+    height: 170px;
+    background-image: url('/assets/cover-2.png');
+    background-size: cover;
+    background-position: center;
+
+
+}
+
+.avatar-container{
+    display: flex;
+    justify-content: center;
+}
+
+.avatar{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-top: -80px;
+    border: 8px solid #FFF0CE;
+    object-fit: cover;
+}
+
+.location{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location p{
+    color: rgba(0,0,0,0.70);
+
+}
+
+.license{
+    margin-top: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 50px;
+    background-color: #EBCB90 ;
+
+}
+
+.license-card button{
+    padding: 10px;
+    border: 2px solid #3396D3;
+    color: #3396D3;
+    background-color: EEEEEE;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+.license-title{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.license-title img{
+    width: 50px;
+    border-radius: 5px;
+}
+
+
+footer{
+    padding: 50px 100px;
+    margin-top: 50px;
+    background-color: #EBCB90;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer i{
+    font-size: 30px;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Project filter bar */
+.project-filter {
+  display: flex;
+  gap: 10px;
+  margin: 6px 0 6px 0;
+  flex-wrap: wrap;
+}
+.project-filter button {
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: #EEEEEE;
+  cursor: pointer;
+}
+.project-filter button.active {
+  background: #3396D3;
+  color: #fff;
+  border-color: #3396D3;
+}
+
+/* Header shadow saat scroll */
+header.scrolled {
+  position: sticky;
+  top: 0;
+  background: #FFF0CE;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  z-index: 50;
+}
+
+/* Popover sertifikat */
+#cert-popover {
+  position: absolute;
+  inset: auto auto auto auto; /* biar mudah di-set via JS */
+  display: none;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.18);
+  z-index: 9999;
+  max-width: min(90vw, 560px);
+  max-height: 80vh;
+  overflow: auto;
+}
+#cert-popover.visible { display: block; }
+#cert-popover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* (opsional) kursor pada tombol */
+.certificate-btn { cursor: pointer; }
+
+/* perbaikan kecil warna tombol (kamu tulis 'EEEEEE' tanpa #) */
+.license-card button{
+  padding: 10px;
+  border: 2px solid #3396D3;
+  color: #3396D3;
+  background-color: #EEEEEE; /* fix */
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-left: 70px;
+}
+
+/* === MODAL CERTIFICATE === */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background-color: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+.modal[aria-hidden="false"] {
+  display: grid;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #3396D3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============= Responsive Tweaks ============= */
+
+/* Desktop lebar ~ <=1200px */
+@media (max-width: 1200px) {
+  header { padding: 16px 60px; }
+  main { padding: 0 80px; }
+  nav ul { gap: 48px; }
+  .profile-card { width: 320px; }
+  .cover { height: 150px; }
+}
+
+/* Tablet <=1024px */
+@media (max-width: 1024px) {
+  header { padding: 16px 40px; }
+  main {
+    padding: 0 40px;
+    gap: 16px;
+  }
+
+  /* Project: 2 kolom di tablet */
+  .project-card {
+    flex: 1 1 48%;
+    max-width: 48%;
+    min-width: 260px;
+  }
+
+  /* Sidebar tetap muat */
+  .profile-card {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* Header nav lebih rapat */
+  nav ul { gap: 32px; }
+}
+
+/* Mobile besar <=768px */
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+
+  header {
+    padding: 14px 20px;
+    gap: 12px;
+  }
+
+  /* Nav jadi satu baris rapat; kalau mentok, otomatis wrap */
+  nav ul {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* Main jadi kolom */
+  main {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+    align-items: stretch; /* biar full width */
+  }
+
+  .container { gap: 14px; }
+
+  /* About me tombol lebih lebar biar enak di-tap */
+  .about-me button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* Project: 1 kolom di mobile */
+  .project {
+    gap: 12px;
+  }
+  .project-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 16px;
+  }
+
+  /* License bloc jadi full width */
+  .license {
+    padding: 20px;
+    gap: 20px;
+  }
+  .license-card button {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  /* Sidebar (profile card) full width */
+  .profile-card {
+    width: 100%;
+    border-radius: 20px;
+  }
+  .cover {
+    height: 140px;
+    background-position: center;
+  }
+  .avatar {
+    width: 128px;
+    height: 128px;
+    margin-top: -64px;
+    border-width: 6px;
+  }
+  .profile-content {
+    padding: 0 20px 24px 20px;
+  }
+
+  /* Footer jadi kolom */
+  footer {
+    padding: 28px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .container-contact {
+    width: 100%;
+    gap: 12px;
+  }
+
+  /* Header sticky tetap enak dilihat */
+  header.scrolled {
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+  }
+
+  /* Modal lebih lega di mobile */
+  .modal-content {
+    width: 92vw;
+    max-width: 92vw;
+    padding: 14px;
+    border-radius: 10px;
+  }
+  .modal-close {
+    font-size: 18px;
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile kecil <=480px (finishing sentuhan) */
+@media (max-width: 480px) {
+  h1 { font-size: 1.4rem; }
+  h3 { font-size: 1.05rem; }
+  .about-me { padding: 16px; }
+  .project-filter {
+    gap: 8px;
+  }
+  .project-filter button {
+    padding: 8px 10px;
+    font-size: 0.92rem;
+  }
+  .license-title img { width: 40px; }
+  .location p { font-size: 0.95rem; }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aido</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<header>
+    <h1>Aido</h1>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <article class="about-me">
+            <h1>Halo Semua!</h1>
+            <p>Perkenalkan nama saya Aido Nayaka.
+
+            Saya adalah seorang mahasiswa Universitas Komputer Indonesia dengan ketertarikan pada Frontend Web
+            Development, khususnya HTML, CSS, JavaScript, dan React.js.
+
+            Jika kamu tertarik untuk berkenalan denganku, silakan ikuti akun Linkedinku ya.</p>
+            <button><i class="fa-solid fa-link"></i> Connect with me!</button>
+        </article>
+        <h1>Project</h1>
+        <section class="project">
+            <article class="project-card">
+                <h3>E-Perpus</h3>
+                <div class="language-icon">
+                    <div class="dot"></div>
+                    <p>PHP</p>
+                </div>
+            </article>
+            <article class="project-card">
+                <h3>E-Perpus</h3>
+                <div class="language-icon">
+                    <div class="dot"></div>
+                    <p>PHP</p>
+                </div>
+            </article>
+            <article class="project-card">
+                <h3>E-Perpus</h3>
+                <div class="language-icon">
+                    <div class="dot"></div>
+                    <p>PHP</p>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h1>Licenses & Certification </h1>
+            <div class="license">
+                <article class="license-card">
+                    <div class="license-title">
+                        <img src="./assets/dicoding-logo.png" alt="">
+                        <div>
+                            <h4>Belajar Dasar Cloud dan Gen AI di AWS</h4>
+                            <p>Dicoding</p>
+                        </div>
+                    </div>
+                    <button
+                        class="certificate-btn"
+                        data-cert="./assets/certificate-1.png"
+                        >
+                        Show Credential <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                </article>
+                <article class="license-card">
+                    <div class="license-title">
+                        <img src="./assets/dicoding-logo.png" alt="">
+                        <div>
+                            <h4>Belajar Dasar Cloud dan Gen AI di AWS</h4>
+                            <p>Dicoding</p>
+                        </div>
+                    </div>
+                    <button
+                        class="certificate-btn"
+                        data-cert="./assets/certificate-1.png"
+                        >
+                        Show Credential <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </button>
+                </article>
+            </div>                
+        </section>
+    </div>
+    <aside>
+        <div class="profile-card">
+            <div class="cover"></div>
+            <div class="avatar-container">
+                <img class="avatar" src="assets/1755565873954.jpg" alt="Foto Profil">
+            </div>
+            <div class="profile-content">
+                <h1>Aido Nayaka</h1>
+                <p>Fullstack WebDeveloper</p>
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>Bandung, West Java</p>
+                </div>
+                
+            </div>
+        </div>
+    </aside>
+</main>
+<footer>
+    <h1>Aido</h1>
+    <div class="container-contact">
+        <div class="contact">
+                <i class="fa-brands fa-square-linkedin"></i>
+                <p>Aido Nayaka</p>
+        </div>
+        <div class="contact">
+            <i class="fa-brands fa-square-instagram"></i>
+            <p>@naycaaido</p>
+        </div>
+        <div class="contact">
+            <i class="fa-solid fa-envelope"></i>
+            <p>aidonayaka4@gmail.com</p>
+        </div>
+    </div>
+</footer>
+<!-- MODAL CERTIFICATE -->
+<div id="cert-modal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">
+        <p>X</p>
+    </button>
+    <img src="" alt="Certificate Preview">
+  </div>
+</div>
+<script>
+    //CONNECT BUTTON
+  (function connectButton() {
+    const btn = document.querySelector('.about-me button');
+    if (!btn) return;
+    const linkedInUrl = 'https://www.linkedin.com/in/aido-nayaka-9847a1293'; // ganti punyamu
+
+    btn.addEventListener('click', () => {
+      btn.disabled = true;
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Opening...';
+      setTimeout(() => {
+        window.open(linkedInUrl, '_blank', 'noopener,noreferrer');
+        btn.disabled = false;
+        btn.innerHTML = original;
+      }, 500);
+    });
+  })();
+
+   //PROJECTS: RENDER + FILTER
+  (function projectsRenderAndFilter() {
+    const projectWrap = document.querySelector('.project');
+    if (!projectWrap) return;
+
+    // Contoh data — ganti sesuai real projectmu
+    const projects = [
+      { title: 'E-Perpus', language: 'PHP' },
+      { title: 'Todo API', language: 'Node.js' },
+      { title: 'Portfolio', language: 'React' },
+      { title: 'Cafe Landing', language: 'HTML/CSS' },
+      { title: 'E-Perpus Admin', language: 'PHP' },
+      { title: 'Weather App', language: 'JavaScript' },
+    ];
+
+    // Buat container filter di atas list project (dinamis)
+    const titleH1 = projectWrap.previousElementSibling; // <h1>Project</h1>
+    const filterBar = document.createElement('div');
+    filterBar.className = 'project-filter';
+    titleH1.insertAdjacentElement('afterend', filterBar);
+
+    // Kumpulkan bahasa unik
+    const langs = ['All', ...Array.from(new Set(projects.map(p => p.language)))];
+
+    // Render tombol filter
+    langs.forEach(l => {
+      const b = document.createElement('button');
+      b.textContent = l;
+      b.dataset.lang = l;
+      if (l === 'All') b.classList.add('active');
+      filterBar.appendChild(b);
+    });
+
+    function render(list) {
+      projectWrap.innerHTML = '';
+      list.forEach(p => {
+        const card = document.createElement('article');
+        card.className = 'project-card';
+        card.innerHTML = `
+          <h3>${p.title}</h3>
+          <div class="language-icon">
+            <div class="dot"></div>
+            <p>${p.language}</p>
+          </div>
+        `;
+        projectWrap.appendChild(card);
+      });
+    }
+
+    // Render awal
+    render(projects);
+
+    // Event filter
+    filterBar.addEventListener('click', e => {
+      if (e.target.tagName !== 'BUTTON') return;
+      filterBar.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+
+      const key = e.target.dataset.lang;
+      if (key === 'All') return render(projects);
+      const filtered = projects.filter(p => p.language === key);
+      render(filtered);
+    });
+  })();
+
+  //HEADER SHADOW ON SCROLL
+  (function headerShadow() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const handler = () => {
+      if (window.scrollY > 8) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    };
+    handler();
+    window.addEventListener('scroll', handler, { passive: true });
+  })();
+
+ (function certificateModal(){
+  const modal = document.getElementById('cert-modal');
+  const img = modal.querySelector('img');
+  const closeBtn = modal.querySelector('.modal-close');
+  const backdrop = modal.querySelector('.modal-backdrop');
+
+  function openModal(src) {
+    img.src = src;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // disable scroll background
+  }
+
+  function closeModal() {
+    modal.setAttribute('aria-hidden', 'true');
+    img.src = '';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.certificate-btn');
+    if (btn) {
+      const src = btn.dataset.cert;
+      if (src) openModal(src);
+    }
+
+    if (
+      e.target === backdrop ||
+      e.target.closest('.modal-close')
+    ) {
+      closeModal();
+    }
+  });
+
+  // Escape key to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
